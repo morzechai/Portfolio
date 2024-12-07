@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arch Delo - Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+    </style>
+
+    <script>
+        /**
+         * Function to switch between tabs
+         * @param {string} tabName - ID of the tab to display
+         */
+        function openTab(tabName) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tabcontent');
+            const buttons = document.querySelectorAll('.tablinks');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show the selected tab
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
+        }
+
+        //Themes
+        function setTheme(theme) {
+            // Theme color options
+            const themes = {
+                default: { backgroundColor: '#1e1e2f', textColor: '#eaeaea', accentColor: '#6a0dad' },
+                ocean: { backgroundColor: '#007bff', textColor: '#ffffff', accentColor: '#0056b3' },
+                sunset: { backgroundColor: '#ff4500', textColor: '#ffffff', accentColor: '#ff6347' },
+                forest: { backgroundColor: '#228b22', textColor: '#ffffff', accentColor: '#006400' }
+            };
+
+            // Apply selected theme or default
+            const selected = themes[theme] || themes.default;
+            document.documentElement.style.setProperty('--background-color', selected.backgroundColor);
+            document.documentElement.style.setProperty('--text-color', selected.textColor);
+            document.documentElement.style.setProperty('--accent-color', selected.accentColor);
+        }
+
+        // Initialize default settings on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTheme('default');   // Set default theme
+            openTab('about');      // Open default tab
+
+            // Add click events to theme buttons
+            document.querySelectorAll('.color-option').forEach(button => {
+                button.addEventListener('click', () => {
+                    const theme = button.getAttribute('data-theme');
+                    setTheme(theme);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Arch Delo's Portfolio</h1>
+        <p>Web Developer | Designer | Content Creator</p>
+    </header>
+
+    <!-- Theme Switcher -->
+    <div class="color-palette">
+        <button class="color-option" data-theme="default" style="background-color: #6a0dad;"></button>
+        <button class="color-option" data-theme="ocean" style="background-color: #007bff;"></button>
+        <button class="color-option" data-theme="sunset" style="background-color: #ff4500;"></button>
+        <button class="color-option" data-theme="forest" style="background-color: #228b22;"></button>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <button class="tablinks" onclick="openTab('about')">About Me</button>
+        <button class="tablinks" onclick="openTab('skills')">Skills</button>
+        <button class="tablinks" onclick="openTab('projects')">Projects</button>
+        <button class="tablinks" onclick="openTab('contact')">Contact</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <section id="about" class="tabcontent">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <img src="images/profile.jpg" alt="Arch Delo Profile Picture" class="profile-img">
+                <p>Hello, I’m Arch Morzechai Delo, an aspiring web developer and designer. While I may be relatively new to the field, I pride myself on being a jack-of-all-trades with a great taste in music and an amazing sense of humor...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="tabcontent">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML - Responsive web design and development</li>
+                <li>CSS - Styling modern web pages</li>
+                <li>JavaScript - Adding interactivity to websites</li>
+                <li>Java - Using Java</li>
+                <img src="images/profile1.jpg" alt="Arch Delo Profile Picture" class="profile-img1">
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="tabcontent">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3 class="project-title">Environmental Awareness in Baguio</h3>
+                <p class="project-description">An informational website promoting conservation efforts and raising awareness about preserving Baguio's natural beauty.</p>
+                <p class="project-date">Date: October 12, 2022</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+          <!-- Decimal to Hexadecimal Project -->
+          <div class="project">
+            <h3 class="project-title">Decimal to Hexadecimal Converter</h3>
+            <p class="project-description">A tool for converting decimal numbers into hexadecimal format, useful for various computational tasks.</p>
+            <p class="project-date">Date: September 20, 2024</p>
+            <a href="dectohex.pdf" class="project-link" download>Download: Decimal to Hexadecimal Converter</a>
+        </div>
+
+        <!-- Bitwise Calculator Project -->
+        <div class="project">
+            <h3 class="project-title">Bitwise Calculator</h3>
+            <p class="project-description">A calculator for performing bitwise operations, including AND, OR, XOR, and more, in binary form.</p>
+            <p class="project-date">Date: October 12, 2024</p>
+            <a href="bitcal.xlsx" class="project-link" download>Download: Bitwise Calculator (Excel)</a>
+        </div>
+
+        <!-- Arithmetic Calculator Project -->
+        <div class="project">
+            <h3 class="project-title">Arithmetic Calculator</h3>
+            <p class="project-description">A simple arithmetic calculator for performing basic math operations such as addition, subtraction, multiplication, and division.</p>
+            <p class="project-date">Date: October 12, 2024</p>
+            <a href="arical.xlsx" class="project-link" download>Download: Arithmetic Calculator (Excel)</a>
+        </div>
+
+        <!-- Bitart Project -->
+        <div class="project">
+            <h3 class="project-title">Bitart (JPEG)</h3>
+            <p class="project-description">A creative art project using bit-level manipulation to create a unique visual representation of binary data.</p>
+            <p class="project-date">Date: November 6, 2024</p>
+            <a href="bitart.jpeg" class="project-link" download>Download: Bitart (JPEG)</a>
+        </div>
+
+        <!-- Project Charter and Stakeholder Analysis -->
+        <div class="project">
+            <h3 class="project-title">Project Charter and Stakeholder Analysis</h3>
+            <p class="project-description">A detailed document outlining the project scope, goals, and stakeholders involved in the project.</p>
+            <p class="project-date">Date: November 19, 2024</p>
+            <a href="prostakeanalysis.pdf" class="project-link" download>Download: Project Charter and Stakeholder Analysis</a>
+        </div>
+
+        <!-- Gantt Chart Project -->
+        <div class="project">
+            <h3 class="project-title">Gantt Chart</h3>
+            <p class="project-description">A Gantt chart showing the project timeline and milestones for efficient project management.</p>
+            <p class="project-date">Date: November 21, 2024</p>
+            <a href="gantchart.pdf" class="project-link" download>Download: Gantt Chart</a>
+        </div>
+
+        <!-- Risk Management and Quality Planning -->
+        <div class="project">
+            <h3 class="project-title">Risk Management and Quality Planning</h3>
+            <p class="project-description">A PDF outlining the risk management and quality assurance plans for a project, identifying potential risks and their mitigation strategies.</p>
+            <p class="project-date">Date: November 23, 2024</p>
+            <a href="riskchart.pdf" class="project-link" download>Download: Risk Management and Quality Planning</a>
+        </div>
+            
+        </div>
+    </section>
+
+    <section id="contact" class="tabcontent">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to collaborate or have any questions, feel free to reach out using the form below.</p>
+            <form action="your-form-handler" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Arch Delo. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="mailto:morzechai@gmail.com" title="Email Me">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.facebook.com/arch.delo/" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.tiktok.com/@moruzechai" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/arch-delo-b283862a3/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+    
